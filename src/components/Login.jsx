@@ -1,25 +1,10 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+
 import styled from "styled-components";
+import { Button } from "@material-ui/core";
+
 import Pingu from "../assets/penguin.svg";
 import { auth, provider } from "../firebase/firebase";
-
-const Login = () => {
-  const signInHandler = () => {
-    auth.signInWithPopup(provider).catch((err) => alert(err.message));
-  };
-  return (
-    <LoginContainer>
-      <LogoContainer>
-        <LoginImage src={Pingu} alt="logo" />
-      </LogoContainer>
-      <LoginTitle>iMessage</LoginTitle>
-      <LoginButton onClick={signInHandler}>Sign In</LoginButton>
-    </LoginContainer>
-  );
-};
-
-export default Login;
 
 const LoginContainer = styled.div`
   display: grid;
@@ -51,3 +36,20 @@ const LoginButton = styled(Button)`
     color: #3ea4fb;
   }
 `;
+
+const Login = () => {
+  const signInHandler = () => {
+    auth.signInWithPopup(provider).catch((err) => alert(err.message));
+  };
+  return (
+    <LoginContainer>
+      <LogoContainer>
+        <LoginImage src={Pingu} alt="logo" />
+      </LogoContainer>
+      <LoginTitle>iMessage</LoginTitle>
+      <LoginButton onClick={signInHandler}>Sign In</LoginButton>
+    </LoginContainer>
+  );
+};
+
+export default Login;
