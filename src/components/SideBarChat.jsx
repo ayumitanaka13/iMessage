@@ -47,9 +47,12 @@ const SideBarChat = ({ id, chatName }) => {
       );
   }, [id]);
 
+  console.log("id", id);
+  console.log("chatName", chatName);
+
   return (
     <SidebarChatContainer
-      onclick={() =>
+      onClick={() =>
         dispatch(
           setChat({
             chatId: id,
@@ -63,7 +66,7 @@ const SideBarChat = ({ id, chatName }) => {
         <h3>{chatName}</h3>
         <p>{chatInfo[0]?.message}</p>
         <TimeStamp>
-          {timeago.format(new Date(chatInfo[0]?.timestamp.toDate()))}
+          {timeago.format(new Date(chatInfo[0]?.timestamp?.toDate()))}
         </TimeStamp>
       </SidebarChatInfoContainer>
     </SidebarChatContainer>

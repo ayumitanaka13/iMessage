@@ -11,7 +11,7 @@ const App = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  // console.log(useSelector(selectChatId));
+  console.log(useSelector(selectChatId));
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -21,7 +21,7 @@ const App = () => {
             uid: authUser.uid,
             photo: authUser.photoURL,
             email: authUser.email,
-            dislayName: authUser.displayName,
+            displayName: authUser.displayName,
           })
         );
       } else {
