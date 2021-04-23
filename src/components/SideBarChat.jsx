@@ -47,9 +47,6 @@ const SideBarChat = ({ id, chatName }) => {
       );
   }, [id]);
 
-  console.log("id", id);
-  console.log("chatName", chatName);
-
   return (
     <SidebarChatContainer
       onClick={() =>

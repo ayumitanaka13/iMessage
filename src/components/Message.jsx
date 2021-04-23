@@ -55,19 +55,17 @@ const TimeStamp = styled.small`
   right: 0;
 `;
 
-const Message = forwardRef(
-  ({ id, contents: { timestamp, email, photo, message } }, ref) => {
-    const user = useSelector(selectUser);
-    const isUser = user.email === email;
+const Message = ({ id, contents: { timestamp, email, photo, message } }) => {
+  const user = useSelector(selectUser);
+  const isUser = user.email === email;
 
-    return (
-      <MessageContainer ref={ref} sender={isUser}>
-        <AvatarContainer src={photo} sender={isUser} />
-        <MessageBubble sender={isUser}>{message}</MessageBubble>
-        <TimeStamp>{timeago.format(new Date(timestamp?.toDate()))}</TimeStamp>
-      </MessageContainer>
-    );
-  }
-);
+  return (
+    <MessageContainer sender={isUser}>
+      <AvatarContainer src={photo} sender={isUser ? 1 : 0} />
+      <MessageBubble sender={isUser}>{message}</MessageBubble>
+      <TimeStamp>{timeago.format(new Date(timestamp?.toDate()))}</TimeStamp>
+    </MessageContainer>
+  );
+};
 
 export default Message;
